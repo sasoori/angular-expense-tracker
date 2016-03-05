@@ -1,0 +1,22 @@
+<div>
+
+    <div class="container">
+
+        <label>Choose friend</label>
+        <select class="form-control" ng-change="change()"ng-model="payment.friend" ng-options="friend as friend.name for friend in friends"></select>
+
+        <div class="friend-wrapper" ng-repeat="consumer in consumersList">
+
+            <label>Amount to {{consumer.name}}</label>
+            <input type="number" ng-model="consumer.amount" class="form-control">
+
+        </div>
+        <br />
+
+        <label>Total: {{ getTotal() }}</label>
+        <div class="btn btn-primary" ng-click="addPayment()">Add payment</div>
+
+        <div class="btn btn-primary" ui-sref="home">Cancel</div>
+    </div>
+
+</div>

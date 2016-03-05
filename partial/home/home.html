@@ -1,0 +1,25 @@
+<div>
+
+    <div class="friends-list">
+
+        <div class="friend-container" ng-repeat="friend in friends">
+
+            <div class="friend-name">
+                {{friend.name}} {{friend.surname}}
+            </div>
+            <div class="total-payment">
+                {{friend.sum}}
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="btn btn-primary" ui-sref="add-payment">Add payment</div>
+    <div class="btn btn-primary" ui-sref="payment-list">Payment List</div>
+
+
+
+    </div>
+
+</div>
