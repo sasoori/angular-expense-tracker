@@ -1,4 +1,4 @@
-angular.module('expenseTracker', ['ui.bootstrap','ui.utils','ui.router','ngAnimate']);
+angular.module('expenseTracker', ['ui.bootstrap','ui.utils','ui.router','ngAnimate','ngMaterial', 'ngMessages', 'material.svgAssetsCache']);
 
 angular.module('expenseTracker').config(function($stateProvider, $urlRouterProvider) {
 
@@ -10,7 +10,11 @@ angular.module('expenseTracker').config(function($stateProvider, $urlRouterProvi
     $stateProvider.state('add-payment', {
         url: '/add-payment',
         templateUrl: 'partial/add-payment/add-payment.html',
-        controller:'AddPaymentCtrl'
+        controller:'AddPaymentCtrl',
+        params: {
+            payerID: null,
+
+        }
     });
     $stateProvider.state('payment-list', {
         url: '/payment-list',

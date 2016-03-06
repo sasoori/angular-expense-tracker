@@ -1,25 +1,29 @@
-<div>
-
-    <div class="friends-list">
-
-        <div class="friend-container" ng-repeat="friend in friends">
-
-            <div class="friend-name">
-                {{friend.name}} {{friend.surname}}
-            </div>
-            <div class="total-payment">
-                {{friend.sum}}
-            </div>
-
+<md-toolbar md-scroll-shrink ng-if="true">
+    <div class="md-toolbar-tools">
+        <h3>
+            <span>Who should pay next</span>
+        </h3>
+    </div>
+</md-toolbar>
+<div class="friends-list" ng-repeat="friend in friends">
+    <md-content layout-md="column" layout="row">
+        <div flex-xs="" flex-gt-xs="100" layout="column">
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{friend.name}}</span>
+                        <span class="md-subhead">Current state: {{friend.currentState}}</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-md card-media"><i class="material-icons">account_box</i></div>
+                    </md-card-title-media>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button  class ="payment-button"ui-sref="add-payment({payerID:friend.id})">Add payment</md-button>
+                </md-card-actions>
+            </md-card>
         </div>
-
-    </div>
-
-    <div class="btn btn-primary" ui-sref="add-payment">Add payment</div>
-    <div class="btn btn-primary" ui-sref="payment-list">Payment List</div>
-
-
-
-    </div>
-
+    </md-content>
 </div>
+
+<div class="btn btn-primary myBtn" ui-sref="payment-list">Payment List</div>

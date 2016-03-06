@@ -22,30 +22,7 @@ angular.module('expenseTracker').factory('friendService',function(utilityService
 
         modelPaymentList : {
              payment:[
-                 {
-                     id: String,
-                     date: String,
-                     message: String,
-                     paymentInfo: {
-                         total: Number,
-                         payerID: Number,
-                         consumersList: [
-                             {
-                                 id: Number,
-                                 amount: Number
-                             },
-                             {
-                                 id: Number,
-                                 amount: Number
-                             },
-                             {
-                                 id: Number,
-                                 amount: Number
-                             }
-                         ]
-                     }
 
-                 }
             ]
         },
 
@@ -63,7 +40,19 @@ angular.module('expenseTracker').factory('friendService',function(utilityService
             return rFriend;
         },
 
+        resetValues: function(cb){
 
+            angular.forEach(service.model.friendList, function (friend, index) {
+
+
+                service.model.friendList[index].totalPayment = 0;
+                service.model.friendList[index].totalDebt = 0;
+                service.model.friendList[index].currentState = 0;
+
+            });
+
+            cb();
+        },
         addPaymentToPaymentList: function(payerID, total, consumersList){
 
 
@@ -96,20 +85,6 @@ angular.module('expenseTracker').factory('friendService',function(utilityService
 
          },
 
-
-        resetValues: function(cb){
-
-            angular.forEach(service.model.friendList, function (friend, index) {
-
-
-                    service.model.friendList[index].totalPayment = 0;
-                    service.model.friendList[index].totalDebt = 0;
-                    service.model.friendList[index].sum = 0;
-
-              });
-
-            cb();
-        },
 
 
         addTotalPayment: function(id, amount){
@@ -166,11 +141,20 @@ angular.module('expenseTracker').factory('friendService',function(utilityService
 
             angular.forEach(service.model.friendList, function(friend, index){
 
-                friend.sum = friend.totalPayment - friend.totalDebt;
+                    friendsArray[index].currentState =  friend.totalPayment - friend.totalDebt;
 
             });
 
-            friendsArray.sort(utilityService.propComparator('sum'));
+
+            friendsArray.sort(utilityService.propComparator('currentState'));
+
+
+            angular.forEach(friendsArray, function(friend, index) {
+
+                friendsArray[index].currentState = utilityService.formatMoney(friend.currentState, 0, "$")
+
+            });
+
 
             return friendsArray;
 

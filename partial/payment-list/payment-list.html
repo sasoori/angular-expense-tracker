@@ -1,12 +1,31 @@
-<div class="payment-container">
 
-    <label>Payment List</label>
-    <div class="payment" ng-repeat="payment in payment">
-        {{payment.message}}</div>
+<md-toolbar md-scroll-shrink ng-if="true">
+    <div class="md-toolbar-tools">
+        <md-button ui-sref="home" aria-label="Go Back">
+            Go Back
+        </md-button>
+        <h3>
+            <span>Payment List</span>
+        </h3>
+    </div>
+</md-toolbar>
 
-</div>
 
-<br />
-<br />
-<div class="btn btn-primary" ui-sref="home">Back</div>
+<div class="payment-list">
+    <md-content flex>
+        <md-list ng-repeat="payment in payment">
+            <md-list-item class="md-3-line" >
+                <i class="material-icons  md-avatar">euro_symbol</i>
+                <div class="md-list-item-text">
+                    <h4>{{payment.message}}</h4></p>
+                    <p>
+                        {{payment.date}}
+                    </p>
+                </div>
+                <md-divider inset></md-divider>
+            </md-list-item>
+        </md-list>
+    </md-content>
+
+ </div>
 

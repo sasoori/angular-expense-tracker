@@ -1,6 +1,12 @@
-angular.module('expenseTracker').controller('AddPaymentCtrl',function($scope, $state, friendService){
+angular.module('expenseTracker').controller('AddPaymentCtrl',function($scope, $state,$stateParams, friendService){
 
     $scope.payment = {};
+    $scope.payment.friend = friendService.getFriendByID($stateParams.payerID);
+
+
+    $scope.$watch('payment.friend', function(){
+        $scope.change()
+    });
 
     $scope.friends = friendService.model.friendList;
 
@@ -39,9 +45,10 @@ angular.module('expenseTracker').controller('AddPaymentCtrl',function($scope, $s
 
         // params :  payerID, total, consumersList
         friendService.addPaymentToPaymentList($scope.payment.friend.id, $scope.getTotal(), $scope.consumersList);
-        $scope.consumersList  = {};
         $state.go('home');
 
     };
+
+
 
 });
