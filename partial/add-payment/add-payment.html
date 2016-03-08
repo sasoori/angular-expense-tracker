@@ -17,23 +17,22 @@
     <h4>Select payer</h4>
     <select class="form-control" ng-change="change()"ng-model="payment.friend" ng-options="friend as friend.name for friend in friends"></select>
 
-    <br />
-    <br />
-
     <h4>Choose amount for:</h4>
 
-    <br />
+
     <div class="friend-wrapper" ng-repeat="consumer in consumersList">
 
             <label>{{consumer.name}}</label>
-            <input type="number" ng-model="consumer.amount" class="form-control">
+            <input min="0" type="number" ng-model="consumer.amount" class="form-control">
         <br />
 
     </div>
-    <br />
 
-    <label>Total: <h4 style="display: inline-block">${{ getTotal()}}</h4></label>  <br />
-    <div class="btn btn-primary myBtn" ng-click="addPayment()">Add payment</div>
+
+    <label>Total: <h4> ${{ getTotal()}}</h4></label>  <br />
+    <md-button add-Payment-Btn class ="payment-button myBtn">Add payment</md-button>
+
+    <message-label>{{message}}</message-label>
 
 </div>
 

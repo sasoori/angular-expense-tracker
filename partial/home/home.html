@@ -12,10 +12,12 @@
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">{{friend.name}}</span>
-                        <span class="md-subhead">Current state: {{friend.currentState}}</span>
+                        <span class="md-subhead">Total: ${{friend.totalPayment}}</span>
+                        <h5>Current state: {{friend.currentState}}</h5>
+
                     </md-card-title-text>
                     <md-card-title-media>
-                        <div class="md-media-md card-media"><i class="material-icons">account_box</i></div>
+                       <img src="img/user.png" />
                     </md-card-title-media>
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="end center">
@@ -25,5 +27,5 @@
         </div>
     </md-content>
 </div>
+<md-button  class ="payment-button myBtn" ui-sref="payment-list"">Payment List</md-button>
 
-<div class="btn btn-primary myBtn" ui-sref="payment-list">Payment List</div>

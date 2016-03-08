@@ -4,13 +4,17 @@ angular.module('expenseTracker').controller('AddPaymentCtrl',function($scope, $s
     $scope.payment.friend = friendService.getFriendByID($stateParams.payerID);
 
 
+    // Watch payment.friend value for changes, if there is one, trigger change() function to update UI
     $scope.$watch('payment.friend', function(){
-        $scope.change()
+        $scope.change();
     });
 
     $scope.friends = friendService.model.friendList;
 
+
+    // Triggered when user changes payer in select control
     $scope.change = function(){
+
         $scope.consumersList =[
             {
                 id:1,
@@ -29,26 +33,18 @@ angular.module('expenseTracker').controller('AddPaymentCtrl',function($scope, $s
 
     };
 
+    // Calculates total sum of the payment
     $scope.getTotal = function(){
         var total = 0;
-        angular.forEach($scope.consumersList, function(friend) {
+        angular.forEach($scope.consumersList, function(consumer) {
 
-            if (friend.amount != null) {
-                total += friend.amount;
+            if (consumer.amount != null) {
+                total += consumer.amount;
             }
 
         });
         return total;
     };
-
-    $scope.addPayment = function(){
-
-        // params :  payerID, total, consumersList
-        friendService.addPaymentToPaymentList($scope.payment.friend.id, $scope.getTotal(), $scope.consumersList);
-        $state.go('home');
-
-    };
-
 
 
 });

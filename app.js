@@ -1,4 +1,4 @@
-angular.module('expenseTracker', ['ui.bootstrap','ui.utils','ui.router','ngAnimate','ngMaterial', 'ngMessages', 'material.svgAssetsCache']);
+angular.module('expenseTracker', ['ui.bootstrap','ui.utils','ui.router','ngMaterial', 'ngAnimate', 'ngMessages']);
 
 angular.module('expenseTracker').config(function($stateProvider, $urlRouterProvider) {
 

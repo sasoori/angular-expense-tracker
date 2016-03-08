@@ -1,10 +1,14 @@
 angular.module('expenseTracker').controller('HomeCtrl',function($scope, friendService){
 
+
+    // ON state load
+
+    // Reset values
     friendService.resetValues(function(){
-
-        friendService.getTotalPayment(function(){
-
-            $scope.friends = friendService.getDebt();
+        // Loop trough payment list
+        friendService.checkPaymentList(function(){
+             // Update UI
+            $scope.friends = friendService.checkState();
 
         });
 

@@ -1,7 +1,8 @@
 angular.module('expenseTracker').factory('utilityService',function() {
-var id = 0;
+
 return{
 
+    // Generate GUID, so each payment gets unique ID
     guid: function() {
         function s4() {
             return Math.floor((1 + Math.random()) * 0x10000)
@@ -12,20 +13,14 @@ return{
             s4() + '-' + s4() + s4() + s4();
     },
 
-   propComparator:function (prop){
+    // Compare numbers
+    propComparator:function (prop){
         return function(a, b) {
             return a[prop] - b[prop];
         };
     },
 
-    decimalAdjust:function (type, value, exp) {
-        // If the exp is undefined or zero...
-        if (typeof exp === 'undefined' || +exp === 0) {
-            return Math[type](value);
-        }
-
-
-    },
+    // Add dollar sign
     formatMoney : function(number,places, symbol, thousand, decimal) {
     places = !isNaN(places = Math.abs(places)) ? places : 2;
     symbol = symbol !== undefined ? symbol : "$";

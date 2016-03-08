@@ -1,13 +1,17 @@
 @import "bower_components/bootstrap/less/bootstrap.less";
 //@import "bower_components/bootstrap/less/theme.less";
-@import "bower_components/font-awesome/less/font-awesome.less";
-@fa-font-path: "bower_components/font-awesome/fonts";
+
+@import "bower_components/angular-material/angular-material.css";
+@import "bower_components/montserrat/montserrat.css";
+
 
 /* Component LESS */
+
 @import "partial/home/home.less";
 @import "partial/add-payment/add-payment.less";
 @import "partial/add-payment/add-payment.less";
 @import "partial/payment-list/payment-list.less";
+
 /* Add Component LESS Above */
 
 /* Required for Angular UI Bootstrap */
@@ -25,70 +29,107 @@
 //	}
 //}
 .container{
-max-width: 600px;
+    max-width: 600px;
 
 }
 .friends-list .material-icons {
-    color:rgba(0,0,0,0.54)!important;
-    font-size: 132px!important;  /* Preferred icon size */
+    color:rgba(0,0,0,0.54);
+    font-size: 132px;  /* Preferred icon size */
 }
 
 .payment-list .material-icons {
-    color:rgba(0,0,0,0.54)!important;
-    font-size: 30px!important;  /* Preferred icon size */
+    color:rgba(0,0,0,0.54);
+    font-size: 30px;  /* Preferred icon size */
 }
 
 body{
     font-family: 'Montserrat', sans-serif;
-    background-image: url('img/texture.jpg')!important;
-    height:auto!important;
+    background-image: url('img/texture.jpg');
+    height:auto;
 
 }
 .friends-list md-content{
 
-    background-color:transparent!important;
+    background-color:transparent;
 
 }
 
+md-card-actions .payment-button{
+    padding: 4px 7px;
+    text-transform: none;
+    background-color:#428bca;
+    color:white;
+    line-height: 20px;
+    min-height: 20px;
+    font-size: 12px;
+}
 .payment-button{
-    padding: 4px 7px!important;
-    text-transform: none!important;
-    background-color:#428bca!important;
-    color:white!important;
-    line-height: 20px!important;
-    min-height: 20px!important;
-    font-size: 12px!important;
+    margin: 0;
+    text-transform: none;
+    background-color:#428bca;
+    color:white;
+    line-height: 30px;
+    min-height: 20px;
+    font-size: 14px;
 }
-
+.md-button:not([disabled]):hover {
+    background-color: #428bca!important;
+    color:white;
+}
 h1{
 
-    margin: 50px 0!important;
-    color:#428bca!important;
+    margin: 50px 0;
+    color:#428bca;
+}
+md-card md-card-title md-card-title-media{
+
+    width:90px;
+
+}
+.logo{
+
+    display: block; margin: 10px auto;
 }
 
 md-card .md-actions, md-card md-card-actions {
-    margin: 14px!important;
+    margin: 14px;
 }
 md-card{
-    margin: 0px 0 10px 0!important;
+    margin: 0 0 10px 0;
     overflow:hidden;
 }
 
 md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
-    background-color: #428bca!important;
+    background-color: #428bca;
 }
 
 .md-avatar {
-    margin-top: 25px!important;
-    margin-left:10px!important;
+    margin-top: 25px;
+    margin-left:10px;
 }
 
 md-list{
 
-    padding: 8px 0px 0px 0px!important;
+    padding: 8px 0 0 0;
 }
 
 md-toolbar{
 
-    margin-bottom:5px!important;
+    margin-bottom:5px;
+}
+h5{
+
+    margin:0;
+}
+
+label > h4{
+    display: inline-block;
+}
+.add-payment-container h4{
+    margin-bottom: 30px!important;
+
+}
+select{
+
+    margin-bottom:40px;
 }
